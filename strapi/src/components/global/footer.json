@@ -7,37 +7,28 @@
   },
   "options": {},
   "attributes": {
-    "logo": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::logo.logo"
-    },
-    "description": {
+    "address": {
       "type": "string"
     },
-    "copyright": {
+    "phone": {
       "type": "string"
     },
-    "designed_developed_by": {
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "address_link": {
       "type": "string"
     },
-    "built_with": {
+    "phone_link": {
       "type": "string"
-    },
-    "internal_links": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.link"
-    },
-    "policy_links": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.link"
-    },
-    "social_media_links": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.link"
     }
   }
 }

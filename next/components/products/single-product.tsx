@@ -5,14 +5,11 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { IconCheck } from "@tabler/icons-react";
 import { cn, formatNumber } from "@/lib/utils";
-import AddToCartModal from "@/components/products/modal";
-import { useCart } from "@/context/cart-context";
 import { strapiImage } from "@/lib/strapi/strapiImage";
 
 export const SingleProduct = ({ product }: { product: Product }) => {
   const [activeThumbnail, setActiveThumbnail] = useState(strapiImage(product.images[0].url));
-  const { addToCart } = useCart();
-  
+
   return (
     <div className="bg-gradient-to-b from-neutral-900 to-neutral-950  p-4 md:p-10 rounded-md">
       <div className=" grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -103,7 +100,6 @@ export const SingleProduct = ({ product }: { product: Product }) => {
               </li>
             ))}
           </ul>
-          <AddToCartModal onClick={() => addToCart(product)} />
         </div>
       </div>
     </div>

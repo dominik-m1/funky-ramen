@@ -192,7 +192,6 @@ export interface DynamicZonePricing extends Struct.ComponentSchema {
   };
   attributes: {
     heading: Schema.Attribute.String;
-    plans: Schema.Attribute.Relation<'oneToMany', 'api::plan.plan'>;
     sub_heading: Schema.Attribute.String;
   };
 }
@@ -205,7 +204,6 @@ export interface DynamicZoneRelatedArticles extends Struct.ComponentSchema {
     icon: 'bulletList';
   };
   attributes: {
-    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
     heading: Schema.Attribute.String;
     sub_heading: Schema.Attribute.String;
   };
@@ -234,10 +232,6 @@ export interface DynamicZoneTestimonials extends Struct.ComponentSchema {
   attributes: {
     heading: Schema.Attribute.String;
     sub_heading: Schema.Attribute.String;
-    testimonials: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::testimonial.testimonial'
-    >;
   };
 }
 
@@ -249,14 +243,14 @@ export interface GlobalFooter extends Struct.ComponentSchema {
     icon: 'apps';
   };
   attributes: {
-    built_with: Schema.Attribute.String;
-    copyright: Schema.Attribute.String;
-    description: Schema.Attribute.String;
-    designed_developed_by: Schema.Attribute.String;
-    internal_links: Schema.Attribute.Component<'shared.link', true>;
-    logo: Schema.Attribute.Relation<'oneToOne', 'api::logo.logo'>;
-    policy_links: Schema.Attribute.Component<'shared.link', true>;
-    social_media_links: Schema.Attribute.Component<'shared.link', true>;
+    address: Schema.Attribute.String;
+    address_link: Schema.Attribute.String;
+    image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    phone: Schema.Attribute.String;
+    phone_link: Schema.Attribute.String;
   };
 }
 

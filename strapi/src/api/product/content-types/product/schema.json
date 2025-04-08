@@ -41,12 +41,6 @@
       "repeatable": true,
       "component": "shared.perks"
     },
-    "plans": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::plan.plan",
-      "mappedBy": "product"
-    },
     "categories": {
       "type": "relation",
       "relation": "oneToMany",

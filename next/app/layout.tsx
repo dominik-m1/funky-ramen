@@ -1,35 +1,26 @@
-import type { Viewport } from "next";
-import { Locale, i18n } from '@/i18n.config'
-
+// layout.tsx
 import "./globals.css";
+import { Footer } from "@/components/footer";
+import fetchContentType from "@/lib/strapi/fetchContentType";
+import {DesktopNavbar} from "@/components/navbar/desktop-navbar";
 
-import { SlugProvider } from "./context/SlugContext";
-
-export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#06b6d4" },
-    { media: "(prefers-color-scheme: dark)", color: "#06b6d4" },
-  ],
-};
-
-export async function generateStaticParams() {
-  return i18n.locales.map(locale => ({ lang: locale }))
-}
-
-export default function RootLayout({
-  children,
-  params
-}: {
-  children: React.ReactNode
-  params: { lang: Locale }
+export default async function RootLayout({
+     children,
+ }: {
+    children: React.ReactNode;
 }) {
-  return (
-    <html lang={params.lang} suppressHydrationWarning>
-      <body suppressHydrationWarning>
-        <SlugProvider>
-          {children}
-        </SlugProvider>
-      </body>
-    </html>
-  );
+    const pageData = await fetchContentType('global', { filters: { locale: 'pl' } }, true);
+
+    return (
+        <html lang="pl" suppressHydrationWarning>
+            <body suppressHydrationWarning>
+                <DesktopNavbar
+                    leftNavbarItems={pageData.navbar.left_navbar_items}
+                    logo={pageData.navbar.logo}
+                />
+                    {children}
+                <Footer data={pageData.footer} />
+            </body>
+        </html>
+    );
 }
