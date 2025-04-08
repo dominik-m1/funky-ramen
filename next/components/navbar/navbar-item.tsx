@@ -1,29 +1,26 @@
 "use client";
 
-import { Link } from "next-view-transitions";
 import { ReactNode } from "react";
+import {cn} from "@/lib/utils";
 
 type Props = {
-  href: never;
   children: ReactNode;
-  className?: string;
-  target?: string;
+  isLast: boolean;
 };
 
 export function NavbarItem({
   children,
-  href,
-  target,
-  className,
+  isLast,
 }: Props) {
-
   return (
-    <Link
-      href={href}
-      target={target}
+    <span
+      className={cn(
+          "font-bold uppercase text-mainText h-[50px] flex items-center px-6 cursor-pointer",
+          isLast ? "bg-secondary text-primary border-x-4 border-mainText" : "",
+      )}
     >
       {children}
-    </Link>
+    </span>
 
   );
 }

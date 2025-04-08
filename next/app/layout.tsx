@@ -10,13 +10,13 @@ export default async function RootLayout({
     children: React.ReactNode;
 }) {
     const pageData = await fetchContentType('global', { filters: { locale: 'pl' } }, true);
-
     return (
         <html lang="pl" suppressHydrationWarning>
             <body suppressHydrationWarning>
                 <DesktopNavbar
-                    leftNavbarItems={pageData.navbar.left_navbar_items}
+                    navbarData={pageData.navbar.navbar_items}
                     logo={pageData.navbar.logo}
+                    socialMedias={pageData.Socials}
                 />
                     {children}
                 <Footer data={pageData.footer} />

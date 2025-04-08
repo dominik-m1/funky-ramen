@@ -1,22 +1,22 @@
 import React from "react";
 
 import { Link } from "next-view-transitions";
-import { BlurImage } from "./blur-image";
 
 import { strapiImage } from "@/lib/strapi/strapiImage";
-import { Image } from "@/types/types";
+import Image from "next/image";
 
-export const Logo = ({ image }: { image?: Image }) => {
+export const Logo = ({ image }) => {
   if (image) {
     return (
       <Link
         href={`/`}
       >
-        <BlurImage
-          src={strapiImage(image?.url)}
-          alt={image.alternativeText}
-          width={200}
-          height={200}
+        <Image
+            src={strapiImage(image?.url)}
+            alt="Funky Ramen Bar"
+            width={image?.width}
+            height={image?.height}
+            draggable={false}
         />
       </Link>
     );

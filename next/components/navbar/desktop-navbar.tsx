@@ -1,49 +1,56 @@
 "use client";
 import { Logo } from "@/components/logo";
 import { NavbarItem } from "./navbar-item";
-import {
-  useMotionValueEvent,
-  useScroll,
-  motion,
-} from "framer-motion";
-import { cn } from "@/lib/utils";
-import { useState } from "react";
 import {Container} from "@/components/container";
-
+import Image from "next/image";
+import {strapiImage} from "@/lib/strapi/strapiImage";
+import React from "react";
 
 type Props = {
-  leftNavbarItems: {
-    URL: string;
-    text: string;
-    target?: string;
-  }[];
-  logo: any;
+    navbarData: {
+        text: string;
+    }[];
+    logo: any;
+    socialMedias: any
 };
 
-export const DesktopNavbar = ({ leftNavbarItems, logo }: Props) => {
-  const { scrollY } = useScroll();
-
-  const [showBackground, setShowBackground] = useState(false);
-
-  useMotionValueEvent(scrollY, "change", (value) => {
-    if (value > 100) {
-      setShowBackground(true);
-    } else {
-      setShowBackground(false);
-    }
-  });
+export const DesktopNavbar = ({ navbarData, logo, socialMedias }: Props) => {
   return (
     <nav className="bg-primary">
-      <Container className="flex flex-row gap-2 items-center">
-        <Logo image={logo?.image} />
-        <div className="flex items-center gap-1.5">
-          {leftNavbarItems.map((item) => (
-              <NavbarItem href={`/` as never} key={item.text} target={item.target}>
-                {item.text}
-              </NavbarItem>
-          ))}
-        </div>
-      </Container>
+      <div className="border-b-4 border-mainText">
+        <Container className="flex justify-center py-8">
+          <Logo image={logo?.image} />
+        </Container>
+      </div>
+      <div className="border-b-4 border-mainText">
+        <Container className="flex items-center justify-center relative">
+          <div className="flex items-center h-[50px] gap-2">
+            {navbarData.map((item, index) => (
+                <NavbarItem
+                    key={item.text}
+                    isLast={navbarData.length - 1 === index}
+                >
+                  {item.text}
+                </NavbarItem>
+            ))}
+          </div>
+            <div className="flex items-center gap-8 absolute right-0">
+                {socialMedias.map((item) => (
+                    <div key={item.id}>
+                        <a href={item.link} target="_blank">
+                            <Image
+                                src={strapiImage(item.icon.url)}
+                                alt="Funky Ramen Bar Social Media"
+                                width={item.icon.width}
+                                height={item.icon.height}
+                                draggable={false}
+                            />
+                        </a>
+                    </div>
+                ))}
+            </div>
+        </Container>
+      </div>
     </nav>
   );
 };

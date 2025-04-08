@@ -41,12 +41,6 @@
       "repeatable": true,
       "component": "shared.perks"
     },
-    "categories": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::category.category",
-      "mappedBy": "product"
-    },
     "dynamic_zone": {
       "type": "dynamiczone",
       "components": [

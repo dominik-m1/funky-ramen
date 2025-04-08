@@ -96,7 +96,6 @@ export interface DynamicZoneFaq extends Struct.ComponentSchema {
     icon: 'question';
   };
   attributes: {
-    faqs: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'>;
     heading: Schema.Attribute.String;
     sub_heading: Schema.Attribute.String;
   };
@@ -257,13 +256,13 @@ export interface GlobalFooter extends Struct.ComponentSchema {
 export interface GlobalNavbar extends Struct.ComponentSchema {
   collectionName: 'components_global_navbars';
   info: {
+    description: '';
     displayName: 'Navbar';
     icon: 'bold';
   };
   attributes: {
-    left_navbar_items: Schema.Attribute.Component<'shared.link', true>;
     logo: Schema.Attribute.Relation<'oneToOne', 'api::logo.logo'>;
-    right_navbar_items: Schema.Attribute.Component<'shared.link', true>;
+    navbar_items: Schema.Attribute.Component<'shared.link', true>;
   };
 }
 
@@ -276,6 +275,17 @@ export interface ItemsGraphCardTopItems extends Struct.ComponentSchema {
   attributes: {
     number: Schema.Attribute.String;
     text: Schema.Attribute.String;
+  };
+}
+
+export interface ItemsHours extends Struct.ComponentSchema {
+  collectionName: 'components_items_hours';
+  info: {
+    displayName: 'Hours';
+  };
+  attributes: {
+    day: Schema.Attribute.String;
+    hours: Schema.Attribute.String;
   };
 }
 
@@ -354,15 +364,8 @@ export interface SharedButton extends Struct.ComponentSchema {
     icon: 'cursor';
   };
   attributes: {
-    target: Schema.Attribute.Enumeration<
-      ['_blank', '_self', '_parent', '_top']
-    >;
     text: Schema.Attribute.String;
     URL: Schema.Attribute.String;
-    variant: Schema.Attribute.Enumeration<
-      ['simple', 'outline', 'primary', 'muted']
-    > &
-      Schema.Attribute.DefaultTo<'primary'>;
   };
 }
 
@@ -395,15 +398,12 @@ export interface SharedLaunches extends Struct.ComponentSchema {
 export interface SharedLink extends Struct.ComponentSchema {
   collectionName: 'components_shared_links';
   info: {
+    description: '';
     displayName: 'Link';
     icon: 'link';
   };
   attributes: {
-    target: Schema.Attribute.Enumeration<
-      ['_blank', '_self', '_parent', '_top']
-    >;
     text: Schema.Attribute.String;
-    URL: Schema.Attribute.String;
   };
 }
 
@@ -455,6 +455,17 @@ export interface SharedSeo extends Struct.ComponentSchema {
       }>;
     metaViewport: Schema.Attribute.String;
     structuredData: Schema.Attribute.JSON;
+  };
+}
+
+export interface SharedSocialMedia extends Struct.ComponentSchema {
+  collectionName: 'components_shared_social_medias';
+  info: {
+    displayName: 'Social media';
+  };
+  attributes: {
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    link: Schema.Attribute.String;
   };
 }
 
@@ -521,6 +532,7 @@ declare module '@strapi/strapi' {
       'global.footer': GlobalFooter;
       'global.navbar': GlobalNavbar;
       'items.graph-card-top-items': ItemsGraphCardTopItems;
+      'items.hours': ItemsHours;
       'items.input': ItemsInput;
       'items.left-navbar-items': ItemsLeftNavbarItems;
       'items.ray-items': ItemsRayItems;
@@ -531,6 +543,7 @@ declare module '@strapi/strapi' {
       'shared.perks': SharedPerks;
       'shared.section': SharedSection;
       'shared.seo': SharedSeo;
+      'shared.social-media': SharedSocialMedia;
       'shared.social-media-icon-links': SharedSocialMediaIconLinks;
       'shared.steps': SharedSteps;
       'shared.user': SharedUser;
