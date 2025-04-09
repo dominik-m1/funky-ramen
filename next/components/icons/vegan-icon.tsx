@@ -1,0 +1,12 @@
+export const VeganIcon = () => {
+    return (
+        <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.80537 17.4504C6.80537 17.4504 1 14.0639 1 9.7899C1 5.5159 5.5159 1 5.5159 1C5.5159 1 10.3537 5.11214 10.3537 9.26611C10.3537 13.4201 8.49861 15.919 6.80537 17.4504Z" stroke="#32388C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6.80537 17.4504C6.80537 17.4504 5.03211 13.0145 5.67594 7.77295" stroke="#32388C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14.4675 11.1613C14.4675 11.1613 11.8231 15.4517 7.45996 16.8139C11.7249 16.8139 14.7094 16.241 16.8064 14.064C18.9034 11.887 18.0959 7.04919 18.0959 7.04919C12.7743 7.37111 10.3536 9.26622 10.3536 9.26622" stroke="#32388C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6.80537 17.4504C6.80537 17.4504 1 14.0639 1 9.7899C1 5.5159 5.5159 1 5.5159 1C5.5159 1 10.3537 5.11214 10.3537 9.26611C10.3537 13.4201 8.49861 15.919 6.80537 17.4504Z" stroke="#32388C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6.80537 17.4504C6.80537 17.4504 5.03211 13.0145 5.67594 7.77295" stroke="#32388C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14.4675 11.1613C14.4675 11.1613 11.8231 15.4517 7.45996 16.8139C11.7249 16.8139 14.7094 16.241 16.8064 14.064C18.9034 11.887 18.0959 7.04919 18.0959 7.04919C12.7743 7.37111 10.3536 9.26622 10.3536 9.26622" stroke="#32388C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    )
+}

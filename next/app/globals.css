@@ -16,3 +16,11 @@
 body {
   color: rgb(var(--foreground-rgb));
 }
+
+@font-face {
+  font-family: 'JapanRich';
+  src: url('/assets/fonts/JapanRich-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        japan: ['JapanRich', 'sans-serif'],
+      },
       colors: {
         charcoal: "#08090A",
         secondary: "rgba(239, 78, 49, 1)",

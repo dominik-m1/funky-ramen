@@ -266,6 +266,22 @@ export interface GlobalNavbar extends Struct.ComponentSchema {
   };
 }
 
+export interface ItemsAppetizer extends Struct.ComponentSchema {
+  collectionName: 'components_items_appetizers';
+  info: {
+    displayName: 'Appetizer';
+  };
+  attributes: {
+    double_spicy: Schema.Attribute.Boolean;
+    ingredients: Schema.Attribute.String;
+    name: Schema.Attribute.String;
+    price: Schema.Attribute.String;
+    spicy: Schema.Attribute.Boolean;
+    vegan: Schema.Attribute.Boolean;
+    vegetarian: Schema.Attribute.Boolean;
+  };
+}
+
 export interface ItemsGraphCardTopItems extends Struct.ComponentSchema {
   collectionName: 'components_items_graph_card_top_items';
   info: {
@@ -531,6 +547,7 @@ declare module '@strapi/strapi' {
       'dynamic-zone.testimonials': DynamicZoneTestimonials;
       'global.footer': GlobalFooter;
       'global.navbar': GlobalNavbar;
+      'items.appetizer': ItemsAppetizer;
       'items.graph-card-top-items': ItemsGraphCardTopItems;
       'items.hours': ItemsHours;
       'items.input': ItemsInput;
