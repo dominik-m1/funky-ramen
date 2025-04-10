@@ -31,7 +31,7 @@ export const AboutUs = ({ data }: IProps) => {
                     backgroundImage: `url(${strapiImage(data.main_image.url)})`,
                 }}
             />
-            <div className="bg-primary border-b-4 border-mainText">
+            <div className="bg-primary border-b-4 border-mainText" id="about">
                 <Container className="py-20">
                     <h3 className="text-mainText uppercase text-center text-3xl mb-8 font-bold">{data.about_title}</h3>
                     <p className="font-medium">{data.about_text}</p>

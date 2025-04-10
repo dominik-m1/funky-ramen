@@ -11,9 +11,11 @@ type Props = {
 export function NavbarItem({
   children,
   isLast,
+  onClick,
 }: Props) {
   return (
     <span
+        onClick={onClick}
       className={cn(
           "font-bold uppercase text-mainText h-[50px] flex items-center px-6 cursor-pointer",
           isLast ? "bg-secondary text-primary border-x-4 border-mainText" : "",

@@ -262,6 +262,7 @@ export interface GlobalNavbar extends Struct.ComponentSchema {
   attributes: {
     logo: Schema.Attribute.Relation<'oneToOne', 'api::logo.logo'>;
     navbar_items: Schema.Attribute.Component<'shared.link', true>;
+    order_link: Schema.Attribute.String;
   };
 }
 

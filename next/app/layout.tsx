@@ -17,6 +17,7 @@ export default async function RootLayout({
                     navbarData={pageData.navbar.navbar_items}
                     logo={pageData.navbar.logo}
                     socialMedias={pageData.Socials}
+                    orderLink={pageData.navbar.order_link}
                 />
                     {children}
                 <Footer data={pageData.footer} />

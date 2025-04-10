@@ -9,7 +9,6 @@ interface IProps {
     ramen: IRamen,
 }
 export const Ramen = ({ ramen }: IProps) => {
-    console.warn(ramen);
     return (
         <article className="py-24 px-16">
             <div className="flex items-center justify-between mb-12">

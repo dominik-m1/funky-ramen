@@ -16,7 +16,7 @@ interface IProps {
 export const Footer = async ({ data }: IProps) => {
   const imageData = data.image[0];
   return (
-    <footer className="bg-primary py-[110px]">
+    <footer className="bg-primary py-[110px]" id="footer">
       <Container className="flex items-center justify-between">
           <Link
               className="text-mainText font-bold"
