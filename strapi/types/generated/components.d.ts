@@ -347,6 +347,17 @@ export interface ItemsInput extends Struct.ComponentSchema {
   };
 }
 
+export interface ItemsItemWithPrice extends Struct.ComponentSchema {
+  collectionName: 'components_items_item_with_prices';
+  info: {
+    displayName: 'Item with price';
+  };
+  attributes: {
+    price: Schema.Attribute.String;
+    text: Schema.Attribute.String;
+  };
+}
+
 export interface ItemsLeftNavbarItems extends Struct.ComponentSchema {
   collectionName: 'components_items_left_navbar_items';
   info: {
@@ -563,6 +574,7 @@ declare module '@strapi/strapi' {
       'items.graph-card-top-items': ItemsGraphCardTopItems;
       'items.hours': ItemsHours;
       'items.input': ItemsInput;
+      'items.item-with-price': ItemsItemWithPrice;
       'items.left-navbar-items': ItemsLeftNavbarItems;
       'items.ray-items': ItemsRayItems;
       'items.receipt-description': ItemsReceiptDescription;

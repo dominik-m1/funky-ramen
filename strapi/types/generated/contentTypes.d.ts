@@ -369,6 +369,35 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAdditionAddition extends Struct.SingleTypeSchema {
+  collectionName: 'additions';
+  info: {
+    displayName: 'Additions';
+    pluralName: 'additions';
+    singularName: 'addition';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.Component<'items.item-with-price', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::addition.addition'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiAppetizerAppetizer extends Struct.SingleTypeSchema {
   collectionName: 'appetizers';
   info: {
@@ -1156,6 +1185,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::addition.addition': ApiAdditionAddition;
       'api::appetizer.appetizer': ApiAppetizerAppetizer;
       'api::global.global': ApiGlobalGlobal;
       'api::hero.hero': ApiHeroHero;
