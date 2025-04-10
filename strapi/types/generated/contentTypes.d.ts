@@ -638,44 +638,6 @@ export interface ApiNotRamenNotRamen extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiProductProduct extends Struct.CollectionTypeSchema {
-  collectionName: 'products';
-  info: {
-    description: '';
-    displayName: 'Products';
-    pluralName: 'products';
-    singularName: 'product';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    description: Schema.Attribute.String;
-    dynamic_zone: Schema.Attribute.DynamicZone<
-      ['dynamic-zone.related-products', 'dynamic-zone.cta']
-    >;
-    featured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-    images: Schema.Attribute.Media<'images' | 'files' | 'videos', true>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::product.product'
-    > &
-      Schema.Attribute.Private;
-    name: Schema.Attribute.String;
-    perks: Schema.Attribute.Component<'shared.perks', true>;
-    price: Schema.Attribute.Integer;
-    publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID<'name'>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiRamenRamen extends Struct.SingleTypeSchema {
   collectionName: 'ramens';
   info: {
@@ -1221,7 +1183,6 @@ declare module '@strapi/strapi' {
       'api::hero.hero': ApiHeroHero;
       'api::logo.logo': ApiLogoLogo;
       'api::not-ramen.not-ramen': ApiNotRamenNotRamen;
-      'api::product.product': ApiProductProduct;
       'api::ramen.ramen': ApiRamenRamen;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
