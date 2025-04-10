@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_items_receipt_descriptions",
+  "info": {
+    "displayName": "Receipt description"
+  },
+  "options": {},
+  "attributes": {
+    "prefix": {
+      "type": "string"
+    },
+    "ingredients": {
+      "type": "string"
+    }
+  }
+}

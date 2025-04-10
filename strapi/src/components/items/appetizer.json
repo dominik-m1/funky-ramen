@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_items_appetizers",
+  "info": {
+    "displayName": "Appetizer",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "price": {
+      "type": "string"
+    },
+    "double_spicy": {
+      "type": "boolean"
+    },
+    "spicy": {
+      "type": "boolean"
+    },
+    "vegan": {
+      "type": "boolean"
+    },
+    "vegetarian": {
+      "type": "boolean"
+    },
+    "details": {
+      "type": "component",
+      "repeatable": true,
+      "component": "items.receipt-description"
+    }
+  }
+}

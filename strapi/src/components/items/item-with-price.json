@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_items_item_with_prices",
+  "info": {
+    "displayName": "Item with price"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "price": {
+      "type": "string"
+    }
+  }
+}

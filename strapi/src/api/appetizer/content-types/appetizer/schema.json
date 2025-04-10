@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "appetizers",
+  "info": {
+    "singularName": "appetizer",
+    "pluralName": "appetizers",
+    "displayName": "Appetizers",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "description": {
+      "type": "component",
+      "repeatable": true,
+      "component": "items.appetizer"
+    }
+  }
+}
