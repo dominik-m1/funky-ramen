@@ -1,0 +1,89 @@
+import {JapanTitle} from "@/components/ui/JapanTitle";
+import {Container} from "@/components/container";
+import {Ramen} from "@/components/home/ramens/atoms/ramen";
+import { Fragment } from "react";
+import Image from "next/image";
+import {strapiImage} from "@/lib/strapi/strapiImage";
+
+export interface IRamen {
+    id: number;
+    name: string;
+    price: string;
+    double_spicy: boolean | null,
+    spicy: boolean | null,
+    vegan: boolean | null,
+    vegetarian: boolean | null,
+    details: {
+        prefix: string;
+        ingredients: string;
+    }[]
+
+}
+interface IProps {
+    data: {
+        title: string;
+        image: {
+            url: string;
+            width: number;
+            height: number;
+            alternativeText: string;
+        },
+        description: IRamen[]
+    }
+}
+export const Ramens = ({ data }: IProps) => {
+    return (
+        <section>
+            <JapanTitle title={data.title} />
+            <Container className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+                {data.description.map((item, index) => {
+                    let borderClasses = "border-t-4 border-b-4 border-r-4 border-mainText";
+
+                    if (index === 3) {
+                        return (
+                            <Fragment key={`image-${item.id}`}>
+                                <div className={borderClasses}>
+                                    <Ramen ramen={item} image={data.image} />
+                                </div>
+                                <div className={`${borderClasses} border-l-4 bg-secondary flex items-center justify-center p-4`}>
+                                    <Image
+                                        src={strapiImage(data.image.url)}
+                                        alt="Funky Ramen Bar"
+                                        width={data.image.width}
+                                        height={data.image.height}
+                                        draggable={false}
+                                    />
+                                </div>
+                            </Fragment>
+                        );
+                    }
+                    if (index === 0) {
+                        borderClasses = "border-b-4 border-r-4 border-mainText";
+                    } else if (index === 1) {
+                        borderClasses = "border-l-4 border-r-4 border-b-4 border-mainText";
+                    } else if (index === 2) {
+                        borderClasses = "border-l-4 border-b-4 border-mainText";
+                    } else if (index === 4) {
+                        borderClasses = "border-t-4 border-b-4 border-l-4 border-mainText";
+                    } else if (index === 5) {
+                        borderClasses = "border-t-4 border-r-4 border-mainText";
+                    } else if (index === 6) {
+                        borderClasses = "border-t-4 border-r-4 border-l-4 border-mainText";
+                    } else if (index === 7) {
+                        borderClasses = "border-t-4 border-l-4 border-l-4 border-mainText";
+                    } else if (index === 8) {
+                        borderClasses = "border-t-4 border-l-4 border-mainText";
+                    }
+
+                    return (
+                        <div className={borderClasses} key={item.id}>
+                            <Ramen ramen={item} image={data.image} />
+                        </div>
+                    );
+                })}
+            </Container>
+        </section>
+    );
+};
+
+

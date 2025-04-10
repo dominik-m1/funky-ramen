@@ -269,11 +269,12 @@ export interface GlobalNavbar extends Struct.ComponentSchema {
 export interface ItemsAppetizer extends Struct.ComponentSchema {
   collectionName: 'components_items_appetizers';
   info: {
+    description: '';
     displayName: 'Appetizer';
   };
   attributes: {
+    details: Schema.Attribute.Component<'items.receipt-description', true>;
     double_spicy: Schema.Attribute.Boolean;
-    ingredients: Schema.Attribute.String;
     name: Schema.Attribute.String;
     price: Schema.Attribute.String;
     spicy: Schema.Attribute.Boolean;
@@ -369,6 +370,17 @@ export interface ItemsRayItems extends Struct.ComponentSchema {
     item_1: Schema.Attribute.String;
     item_2: Schema.Attribute.String;
     item_3: Schema.Attribute.String;
+  };
+}
+
+export interface ItemsReceiptDescription extends Struct.ComponentSchema {
+  collectionName: 'components_items_receipt_descriptions';
+  info: {
+    displayName: 'Receipt description';
+  };
+  attributes: {
+    ingredients: Schema.Attribute.String;
+    prefix: Schema.Attribute.String;
   };
 }
 
@@ -553,6 +565,7 @@ declare module '@strapi/strapi' {
       'items.input': ItemsInput;
       'items.left-navbar-items': ItemsLeftNavbarItems;
       'items.ray-items': ItemsRayItems;
+      'items.receipt-description': ItemsReceiptDescription;
       'shared.button': SharedButton;
       'shared.form': SharedForm;
       'shared.launches': SharedLaunches;
