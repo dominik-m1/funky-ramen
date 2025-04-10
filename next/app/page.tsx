@@ -4,6 +4,7 @@ import {JapanTitle} from "@/components/ui/JapanTitle";
 import {Appetizers} from "@/components/home/Appetizers";
 import {Ramens} from "@/components/home/ramens";
 import {Additions} from "@/components/home/additions";
+import {NotRamens} from "@/components/home/not-ramens";
 
 export default async function HomePage() {
     const heroData = await fetchContentType('hero', { populate: '*' }, true);
@@ -19,6 +20,7 @@ export default async function HomePage() {
         },
     }, true);
     const additionsData = await fetchContentType('addition', { populate: '*' }, true);
+    const notRamenData = await fetchContentType('not-ramen', { populate: '*' }, true);
 
     return (
         <div className="relative overflow-hidden">
@@ -26,7 +28,7 @@ export default async function HomePage() {
             <Appetizers data={appetizersData}/>
             <Ramens data={ramensData}/>
             <Additions data={additionsData} />
-            <JapanTitle title="Nie ramen" accent/>
+            <NotRamens data={notRamenData}/>
             <JapanTitle title="Deser" />
         </div>
     );
