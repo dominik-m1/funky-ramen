@@ -429,6 +429,35 @@ export interface ApiAppetizerAppetizer extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiDessertDessert extends Struct.SingleTypeSchema {
+  collectionName: 'desserts';
+  info: {
+    displayName: 'Dessert';
+    pluralName: 'desserts';
+    singularName: 'dessert';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.Component<'items.item-with-price', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::dessert.dessert'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -1216,6 +1245,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::addition.addition': ApiAdditionAddition;
       'api::appetizer.appetizer': ApiAppetizerAppetizer;
+      'api::dessert.dessert': ApiDessertDessert;
       'api::global.global': ApiGlobalGlobal;
       'api::hero.hero': ApiHeroHero;
       'api::logo.logo': ApiLogoLogo;

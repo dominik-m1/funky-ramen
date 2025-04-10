@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "desserts",
+  "info": {
+    "singularName": "dessert",
+    "pluralName": "desserts",
+    "displayName": "Dessert"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "component",
+      "repeatable": true,
+      "component": "items.item-with-price"
+    }
+  }
+}
