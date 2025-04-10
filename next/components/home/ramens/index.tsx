@@ -37,7 +37,7 @@ export const Ramens = ({ data }: IProps) => {
             <JapanTitle title={data.title} />
             <Container className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                 {data.description.map((item, index) => {
-                    let borderClasses = "border-t-4 border-b-4 border-r-4 border-mainText";
+                    let borderClasses = "border-t-2 border-b-2 border-r-2 border-mainText";
 
                     if (index === 3) {
                         return (
@@ -45,7 +45,7 @@ export const Ramens = ({ data }: IProps) => {
                                 <div className={borderClasses}>
                                     <Ramen ramen={item} image={data.image} />
                                 </div>
-                                <div className={`${borderClasses} border-l-4 bg-secondary flex items-center justify-center p-4`}>
+                                <div className={`${borderClasses} border-l-2 bg-secondary flex items-center justify-center p-2`}>
                                     <Image
                                         src={strapiImage(data.image.url)}
                                         alt="Funky Ramen Bar"
@@ -58,21 +58,21 @@ export const Ramens = ({ data }: IProps) => {
                         );
                     }
                     if (index === 0) {
-                        borderClasses = "border-b-4 border-r-4 border-mainText";
+                        borderClasses = "border-b-2 border-r-2 border-mainText";
                     } else if (index === 1) {
-                        borderClasses = "border-l-4 border-r-4 border-b-4 border-mainText";
+                        borderClasses = "border-l-2 border-r-2 border-b-2 border-mainText";
                     } else if (index === 2) {
-                        borderClasses = "border-l-4 border-b-4 border-mainText";
+                        borderClasses = "border-l-2 border-b-2 border-mainText";
                     } else if (index === 4) {
-                        borderClasses = "border-t-4 border-b-4 border-l-4 border-mainText";
+                        borderClasses = "border-t-2 border-b-2 border-l-2 border-mainText";
                     } else if (index === 5) {
-                        borderClasses = "border-t-4 border-r-4 border-mainText";
+                        borderClasses = "border-t-2 border-r-2 border-mainText";
                     } else if (index === 6) {
-                        borderClasses = "border-t-4 border-r-4 border-l-4 border-mainText";
+                        borderClasses = "border-t-2 border-r-2 border-l-2 border-mainText";
                     } else if (index === 7) {
-                        borderClasses = "border-t-4 border-l-4 border-l-4 border-mainText";
+                        borderClasses = "border-t-2 border-l-2 border-l-2 border-mainText";
                     } else if (index === 8) {
-                        borderClasses = "border-t-4 border-l-4 border-mainText";
+                        borderClasses = "border-t-2 border-l-2 border-mainText";
                     }
 
                     return (

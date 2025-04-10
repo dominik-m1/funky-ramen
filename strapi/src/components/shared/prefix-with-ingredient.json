@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_prefix_with_ingredients",
+  "info": {
+    "displayName": "Prefix with ingredient"
+  },
+  "options": {},
+  "attributes": {
+    "prefix": {
+      "type": "string"
+    },
+    "ingredients": {
+      "type": "string"
+    }
+  }
+}

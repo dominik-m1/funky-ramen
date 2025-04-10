@@ -369,6 +369,46 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
+  collectionName: 'about_uses';
+  info: {
+    displayName: 'About us';
+    pluralName: 'about-uses';
+    singularName: 'about-us';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    about_text: Schema.Attribute.RichText;
+    about_title: Schema.Attribute.String;
+    bar_image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    bar_text: Schema.Attribute.RichText;
+    bar_title: Schema.Attribute.String;
+    bottom_image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    kitchen_text: Schema.Attribute.RichText;
+    kitchen_title: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::about-us.about-us'
+    > &
+      Schema.Attribute.Private;
+    main_image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiAdditionAddition extends Struct.SingleTypeSchema {
   collectionName: 'additions';
   info: {
@@ -598,76 +638,6 @@ export interface ApiNotRamenNotRamen extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiProductPageProductPage extends Struct.SingleTypeSchema {
-  collectionName: 'product_pages';
-  info: {
-    displayName: '/products';
-    pluralName: 'product-pages';
-    singularName: 'product-page';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    dynamic_zone: Schema.Attribute.DynamicZone<
-      [
-        'dynamic-zone.testimonials',
-        'dynamic-zone.related-products',
-        'dynamic-zone.related-articles',
-        'dynamic-zone.pricing',
-        'dynamic-zone.launches',
-        'dynamic-zone.how-it-works',
-        'dynamic-zone.hero',
-        'dynamic-zone.form-next-to-section',
-        'dynamic-zone.features',
-        'dynamic-zone.faq',
-        'dynamic-zone.cta',
-        'dynamic-zone.brands',
-      ]
-    > &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    heading: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::product-page.product-page'
-    >;
-    publishedAt: Schema.Attribute.DateTime;
-    seo: Schema.Attribute.Component<'shared.seo', false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    sub_heading: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   collectionName: 'products';
   info: {
@@ -721,7 +691,7 @@ export interface ApiRamenRamen extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Component<'items.appetizer', true>;
+    description: Schema.Attribute.Component<'items.ramen', true>;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::ramen.ramen'> &
@@ -1243,6 +1213,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::addition.addition': ApiAdditionAddition;
       'api::appetizer.appetizer': ApiAppetizerAppetizer;
       'api::dessert.dessert': ApiDessertDessert;
@@ -1250,7 +1221,6 @@ declare module '@strapi/strapi' {
       'api::hero.hero': ApiHeroHero;
       'api::logo.logo': ApiLogoLogo;
       'api::not-ramen.not-ramen': ApiNotRamenNotRamen;
-      'api::product-page.product-page': ApiProductPageProductPage;
       'api::product.product': ApiProductProduct;
       'api::ramen.ramen': ApiRamenRamen;
       'plugin::content-releases.release': PluginContentReleasesRelease;

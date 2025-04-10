@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_items_appetizers",
+  "collectionName": "components_items_ramen",
   "info": {
-    "displayName": "Appetizer",
+    "displayName": "Ramen",
     "description": ""
   },
   "options": {},
@@ -24,8 +24,10 @@
     "vegetarian": {
       "type": "boolean"
     },
-    "ingredients": {
-      "type": "string"
+    "details": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.prefix-with-ingredient"
     }
   }
 }

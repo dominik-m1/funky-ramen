@@ -273,14 +273,22 @@ export interface ItemsAppetizer extends Struct.ComponentSchema {
     displayName: 'Appetizer';
   };
   attributes: {
-    details: Schema.Attribute.Component<'items.receipt-description', true>;
     double_spicy: Schema.Attribute.Boolean;
+    ingredients: Schema.Attribute.String;
     name: Schema.Attribute.String;
     price: Schema.Attribute.String;
     spicy: Schema.Attribute.Boolean;
     vegan: Schema.Attribute.Boolean;
     vegetarian: Schema.Attribute.Boolean;
   };
+}
+
+export interface ItemsDetails extends Struct.ComponentSchema {
+  collectionName: 'components_items_details';
+  info: {
+    displayName: 'details';
+  };
+  attributes: {};
 }
 
 export interface ItemsGraphCardTopItems extends Struct.ComponentSchema {
@@ -370,6 +378,23 @@ export interface ItemsLeftNavbarItems extends Struct.ComponentSchema {
   };
 }
 
+export interface ItemsRamen extends Struct.ComponentSchema {
+  collectionName: 'components_items_ramen';
+  info: {
+    description: '';
+    displayName: 'Ramen';
+  };
+  attributes: {
+    details: Schema.Attribute.Component<'shared.prefix-with-ingredient', true>;
+    double_spicy: Schema.Attribute.Boolean;
+    name: Schema.Attribute.String;
+    price: Schema.Attribute.String;
+    spicy: Schema.Attribute.Boolean;
+    vegan: Schema.Attribute.Boolean;
+    vegetarian: Schema.Attribute.Boolean;
+  };
+}
+
 export interface ItemsRayItems extends Struct.ComponentSchema {
   collectionName: 'components_items_ray_items';
   info: {
@@ -455,6 +480,17 @@ export interface SharedPerks extends Struct.ComponentSchema {
   };
   attributes: {
     text: Schema.Attribute.String;
+  };
+}
+
+export interface SharedPrefixWithIngredient extends Struct.ComponentSchema {
+  collectionName: 'components_shared_prefix_with_ingredients';
+  info: {
+    displayName: 'Prefix with ingredient';
+  };
+  attributes: {
+    ingredients: Schema.Attribute.String;
+    prefix: Schema.Attribute.String;
   };
 }
 
@@ -571,11 +607,13 @@ declare module '@strapi/strapi' {
       'global.footer': GlobalFooter;
       'global.navbar': GlobalNavbar;
       'items.appetizer': ItemsAppetizer;
+      'items.details': ItemsDetails;
       'items.graph-card-top-items': ItemsGraphCardTopItems;
       'items.hours': ItemsHours;
       'items.input': ItemsInput;
       'items.item-with-price': ItemsItemWithPrice;
       'items.left-navbar-items': ItemsLeftNavbarItems;
+      'items.ramen': ItemsRamen;
       'items.ray-items': ItemsRayItems;
       'items.receipt-description': ItemsReceiptDescription;
       'shared.button': SharedButton;
@@ -583,6 +621,7 @@ declare module '@strapi/strapi' {
       'shared.launches': SharedLaunches;
       'shared.link': SharedLink;
       'shared.perks': SharedPerks;
+      'shared.prefix-with-ingredient': SharedPrefixWithIngredient;
       'shared.section': SharedSection;
       'shared.seo': SharedSeo;
       'shared.social-media': SharedSocialMedia;

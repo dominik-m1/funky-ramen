@@ -1,11 +1,11 @@
 import fetchContentType from "@/lib/strapi/fetchContentType";
 import {Hero} from "@/components/home/hero";
-import {JapanTitle} from "@/components/ui/JapanTitle";
 import {Appetizers} from "@/components/home/Appetizers";
 import {Ramens} from "@/components/home/ramens";
 import {Additions} from "@/components/home/additions";
 import {NotRamens} from "@/components/home/not-ramens";
 import {Desserts} from "@/components/home/desserts";
+import {AboutUs} from "@/components/home/about-us";
 
 export default async function HomePage() {
     const heroData = await fetchContentType('hero', { populate: '*' }, true);
@@ -23,6 +23,7 @@ export default async function HomePage() {
     const additionsData = await fetchContentType('addition', { populate: '*' }, true);
     const notRamenData = await fetchContentType('not-ramen', { populate: '*' }, true);
     const dessertsData = await fetchContentType('dessert', { populate: '*' }, true);
+    const aboutUsData = await fetchContentType('about-us', { populate: '*' }, true);
 
     return (
         <div className="relative overflow-hidden">
@@ -32,6 +33,7 @@ export default async function HomePage() {
             <Additions data={additionsData} />
             <NotRamens data={notRamenData}/>
             <Desserts data={dessertsData}/>
+            <AboutUs data={aboutUsData} />
         </div>
     );
 }
