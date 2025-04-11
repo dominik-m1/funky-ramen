@@ -1,8 +1,6 @@
-// layout.tsx
 import "./globals.css";
 import { Footer } from "@/components/footer";
 import fetchContentType from "@/lib/strapi/fetchContentType";
-import {DesktopNavbar} from "@/components/navbar/desktop-navbar";
 import {Container} from "@/components/container";
 import {Navbar} from "@/components/navbar";
 

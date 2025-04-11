@@ -1,6 +1,7 @@
 import Image from "next/image";
 import {strapiImage} from "@/lib/strapi/strapiImage";
 import {WaveIcon} from "@/components/icons/wave-icon";
+import ReactMarkdown from "react-markdown";
 
 interface IImage {
     url: string;
@@ -43,7 +44,11 @@ export const AboutUs = ({ data }: IProps) => {
             <div className="bg-primary border-b-4 border-mainText" id="about">
                 <div className="py-20">
                     <h3 className="text-mainText uppercase text-center text-3xl mb-20 font-bold">{data.about_title}</h3>
-                    <p className="font-medium max-w-[85%] mx-auto text-justify">{data.about_text}</p>
+                    <p className="max-w-[85%] mx-auto text-justify">
+                        <ReactMarkdown>
+                            {data.about_text}
+                        </ReactMarkdown>
+                    </p>
                     <div className="flex justify-center mt-20">
                         <WaveIcon />
                     </div>
@@ -52,11 +57,19 @@ export const AboutUs = ({ data }: IProps) => {
             <div className="flex flex-col lg:flex-row">
                 <div className="bg-secondary pb-20 lg:pb-0 w-full lg:w-1/2 pt-20 lg:border-r-2 border-b-4 lg:border-b-2 border-mainText">
                     <h3 className="text-primary uppercase text-center text-3xl mb-20 font-bold">{data.kitchen_title}</h3>
-                    <p className="font-medium max-w-[75%] lg:max-w-[500px] m-auto text-justify">{data.kitchen_text}</p>
+                    <p className=" max-w-[75%] lg:max-w-[500px] m-auto text-justify">
+                        <ReactMarkdown>
+                            {data.kitchen_text}
+                        </ReactMarkdown>
+                    </p>
                 </div>
                 <div className="pt-20 w-full lg:w-1/2 lg:border-l-2 border-b-2 border-mainText">
                     <h3 className="text-secondary uppercase text-center text-3xl mb-20 font-bold">{data.bar_title}</h3>
-                    <p className="font-medium text-primary max-w-[75%] lg:max-w-[500px] m-auto text-justify">{data.bar_text}</p>
+                    <p className="text-primary max-w-[75%] lg:max-w-[500px] m-auto text-justify">
+                        <ReactMarkdown>
+                            {data.bar_text}
+                        </ReactMarkdown>
+                    </p>
                     <div className="flex justify-center">
                         <Image
                             src={strapiImage(data.bar_image.url)}
