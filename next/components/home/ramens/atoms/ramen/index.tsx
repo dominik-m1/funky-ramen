@@ -10,7 +10,7 @@ interface IProps {
 }
 export const Ramen = ({ ramen }: IProps) => {
     return (
-        <article className="py-24 px-16">
+        <article className="p-12 md:py-24 md:px-16">
             <div className="flex items-center justify-between mb-12">
                 <div className="flex items-center">
                     <h3 className="text-primary font-bold text-2xl mr-2">{ramen.name}</h3>
@@ -29,7 +29,7 @@ export const Ramen = ({ ramen }: IProps) => {
                         )}
                     </span>
                 </div>
-                <p className="relative flex items-center justify-center">
+                <p className="relative flex items-center justify-center ml-4">
                     <span className="relative z-10 text-2xl font-bold">{ramen.price}</span>
                     <span className="absolute">
                         <PriceStar />

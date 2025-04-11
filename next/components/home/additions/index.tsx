@@ -14,7 +14,7 @@ export const Additions = ({data}: IProps) => {
     return (
         <section>
             <JapanTitle title={data.title} />
-            <div className="flex justify-center items-center gap-8 py-10">
+            <div className="flex-col md:flex-row flex justify-center items-center gap-8 py-10">
                 {data.content.map(item => {
                     return (
                         <div key={item.id} className="flex items-center gap-2">

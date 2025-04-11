@@ -33,13 +33,13 @@ export const Appetizers = ({data}: IProps) => {
             <JapanTitle title={data.title} />
             <div className="flex">
                 <div className="w-full lg:w-1/2 flex items-center justify-center py-12">
-                    <div className="max-w-[540px] space-y-3">
+                    <div className="max-w-[540px] space-y-3 px-14 xl:px-0">
                         {data.description.map((item) => (
                             <AppetizerItem appetizer={item} key={item.id}/>
                         ))}
                     </div>
                 </div>
-                <div className="hidden lg:block bg-secondary w-1/2">
+                <div className="hidden lg:flex bg-secondary w-1/2 items-end">
                     <Image
                         src={strapiImage(data.image.url)}
                         alt={data.image.alternativeText}

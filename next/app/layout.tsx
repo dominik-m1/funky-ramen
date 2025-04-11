@@ -4,6 +4,7 @@ import { Footer } from "@/components/footer";
 import fetchContentType from "@/lib/strapi/fetchContentType";
 import {DesktopNavbar} from "@/components/navbar/desktop-navbar";
 import {Container} from "@/components/container";
+import {Navbar} from "@/components/navbar";
 
 export default async function RootLayout({
      children,
@@ -15,12 +16,7 @@ export default async function RootLayout({
         <html lang="pl" suppressHydrationWarning>
             <body suppressHydrationWarning>
                 <Container>
-                    <DesktopNavbar
-                        navbarData={pageData.navbar.navbar_items}
-                        logo={pageData.navbar.logo}
-                        socialMedias={pageData.Socials}
-                        orderLink={pageData.navbar.order_link}
-                    />
+                    <Navbar data={pageData}/>
                     {children}
                     <Footer data={pageData.footer} />
                 </Container>

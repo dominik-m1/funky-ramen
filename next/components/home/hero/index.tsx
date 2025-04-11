@@ -4,8 +4,8 @@ import {CTAButton} from "@/components/elements/client-button";
 
 export const Hero = ({ data }) => {
     return (
-        <section className="flex">
-            <div className="w-1/2 bg-mainText flex items-center justify-center py-4 lg:py-[50px]">
+        <section className="pt-[70px] md:pt-0 flex">
+            <div className="hidden md:flex w-1/2 bg-mainText items-center justify-center py-4 lg:py-[50px]">
                 <Image
                     src={strapiImage(data.image.url)}
                     alt={data.image.alternativeText}
@@ -14,7 +14,7 @@ export const Hero = ({ data }) => {
                     draggable={false}
                 />
             </div>
-            <div className="w-1/2 bg-primary flex flex-col justify-center items-center">
+            <div className="pb-10 md:pb-0 w-full md:w-1/2 bg-primary flex flex-col justify-center items-center">
                 <div className="w-3/4 lg:w-[480px]">
                     <h1 className="hidden lg:block text-mainText text-5xl uppercase font-medium w-full relative pb-4">
                         <Image

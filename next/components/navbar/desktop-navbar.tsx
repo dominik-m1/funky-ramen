@@ -4,7 +4,7 @@ import { NavbarItem } from "./navbar-item";
 import Image from "next/image";
 import {strapiImage} from "@/lib/strapi/strapiImage";
 
-type Props = {
+export interface INavProps {
     navbarData: {
         text: string;
     }[];
@@ -26,40 +26,40 @@ const scrollToMenuWithOffset = () => {
     }
 };
 
-export const DesktopNavbar = ({ navbarData, logo, socialMedias, orderLink }: Props) => {
-    const handleItemClick = (index: number) => {
-        switch (index) {
-            case 0:
-                window.open(orderLink, "_blank", "noopener,noreferrer");
-                break;
-            case 1:
-                document.getElementById("about")?.scrollIntoView({
-                    behavior: "smooth",
-                });
-                break;
-            case 2:
-                document.getElementById("footer")?.scrollIntoView({
-                    behavior: "smooth",
-                });
-                break;
-            case 3:
-                scrollToMenuWithOffset();
-                break;
-            default:
-                break;
-        }
-    };
+export const handleItemClick = (index: number, orderLink) => {
+    switch (index) {
+        case 0:
+            window.open(orderLink, "_blank", "noopener,noreferrer");
+            break;
+        case 1:
+            document.getElementById("about")?.scrollIntoView({
+                behavior: "smooth",
+            });
+            break;
+        case 2:
+            document.getElementById("footer")?.scrollIntoView({
+                behavior: "smooth",
+            });
+            break;
+        case 3:
+            scrollToMenuWithOffset();
+            break;
+        default:
+            break;
+    }
+};
 
+export const DesktopNavbar = ({ navbarData, logo, socialMedias, orderLink }: INavProps) => {
     return (
       <>
-          <div className="bg-primary">
+          <div className="hidden md:block bg-primary">
               <div className="border-b-4 border-mainText">
                   <div className="flex justify-center py-8">
                       <Logo image={logo?.image} />
                   </div>
               </div>
           </div>
-          <div className="bg-primary sticky top-0 z-50 border-b-4 border-mainText">
+          <div className="hidden md:block bg-primary sticky top-0 z-50 border-b-4 border-mainText">
               <div className="flex items-center justify-between relative h-full px-8">
                   <div className="flex items-center justify-center flex-grow h-[50px]">
                       <div className="flex items-center gap-2">
@@ -67,7 +67,7 @@ export const DesktopNavbar = ({ navbarData, logo, socialMedias, orderLink }: Pro
                               <NavbarItem
                                   key={item.text}
                                   isLast={navbarData.length - 1 === index}
-                                  onClick={() => handleItemClick(index)}
+                                  onClick={() => handleItemClick(index, orderLink)}
                               >
                                   {item.text}
                               </NavbarItem>

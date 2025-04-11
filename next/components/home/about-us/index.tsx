@@ -25,15 +25,25 @@ export const AboutUs = ({ data }: IProps) => {
     return (
         <section>
             <div
-                className="w-full h-[480px] bg-center bg-cover bg-fixed border-y-4 border-mainText"
+                className="hidden md:block w-full h-[480px] bg-center bg-cover bg-fixed border-y-4 border-mainText"
                 style={{
                     backgroundImage: `url(${strapiImage(data.main_image.url)})`,
                 }}
             />
+            <div className="h-[420px] md:hidden">
+                <Image
+                    src={strapiImage(data.main_image.url)}
+                    alt="Funky Ramen Bar"
+                    width={data.main_image.width}
+                    height={data.main_image.height}
+                    className="h-full object-cover"
+                    draggable={false}
+                />
+            </div>
             <div className="bg-primary border-b-4 border-mainText" id="about">
                 <div className="py-20">
-                    <h3 className="text-mainText uppercase text-center text-3xl mb-8 font-bold">{data.about_title}</h3>
-                    <p className="font-medium max-w-[75%] mx-auto text-justify">{data.about_text}</p>
+                    <h3 className="text-mainText uppercase text-center text-3xl mb-20 font-bold">{data.about_title}</h3>
+                    <p className="font-medium max-w-[85%] mx-auto text-justify">{data.about_text}</p>
                     <div className="flex justify-center mt-20">
                         <WaveIcon />
                     </div>
@@ -46,7 +56,7 @@ export const AboutUs = ({ data }: IProps) => {
                 </div>
                 <div className="pt-20 w-full lg:w-1/2 lg:border-l-2 border-b-2 border-mainText">
                     <h3 className="text-secondary uppercase text-center text-3xl mb-20 font-bold">{data.bar_title}</h3>
-                    <p className="font-medium text-primary max-w-[500px] m-auto text-justify">{data.bar_text}</p>
+                    <p className="font-medium text-primary max-w-[75%] lg:max-w-[500px] m-auto text-justify">{data.bar_text}</p>
                     <div className="flex justify-center">
                         <Image
                             src={strapiImage(data.bar_image.url)}
@@ -70,7 +80,7 @@ export const AboutUs = ({ data }: IProps) => {
                     width={data.bottom_image.width}
                     height={data.bottom_image.height}
                     draggable={false}
-                    className="-mb-2 max-h-[450px] w-auto"
+                    className="-mb-2 max-h-[450px] lg:max-h-[500px] w-auto"
                 />
             </div>
         </section>

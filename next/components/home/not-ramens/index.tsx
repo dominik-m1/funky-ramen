@@ -14,7 +14,7 @@ export const NotRamens = ({ data }: IProps) => {
     return (
         <section>
             <JapanTitle title={data.title} accent/>
-            <div className="flex flex-col justify-center items-center gap-8 py-10">
+            <div className="flex flex-col justify-center items-center gap-8 py-10 px-4 md:px-0">
                 {data.content.map(item => {
                     return (
                         <div key={item.id} className="flex items-center">

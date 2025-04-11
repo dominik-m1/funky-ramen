@@ -5,7 +5,7 @@ import { Link } from "next-view-transitions";
 import { strapiImage } from "@/lib/strapi/strapiImage";
 import Image from "next/image";
 
-export const Logo = ({ image }) => {
+export const Logo = ({ image, className }) => {
   if (image) {
     return (
       <Link
@@ -17,6 +17,7 @@ export const Logo = ({ image }) => {
             width={image?.width}
             height={image?.height}
             draggable={false}
+            className={className}
         />
       </Link>
     );
