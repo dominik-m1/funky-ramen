@@ -6,6 +6,22 @@ import {Additions} from "@/components/home/additions";
 import {NotRamens} from "@/components/home/not-ramens";
 import {Desserts} from "@/components/home/desserts";
 import {AboutUs} from "@/components/home/about-us";
+import {generateMetadataObject} from "@/lib/shared/metadata";
+
+export async function generateMetadata() {
+    const pageData = await fetchContentType("global", { filters: { locale: "pl" } }, true);
+    const seoData = pageData?.seo || {};
+    const metadata = generateMetadataObject(seoData);
+
+    return {
+        ...metadata,
+        keywords: seoData.keywords || '',
+        robots: seoData.metaRobots || 'index,follow',
+        alternates: {
+            canonical: seoData.canonicalURL || '',
+        },
+    };
+}
 
 export default async function HomePage() {
     const heroData = await fetchContentType('hero', { populate: '*' }, true);
