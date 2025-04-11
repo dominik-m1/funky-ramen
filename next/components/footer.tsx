@@ -1,5 +1,4 @@
 import { Link } from "next-view-transitions";
-import {Container} from "@/components/container";
 import Image from "next/image";
 import {strapiImage} from "@/lib/strapi/strapiImage";
 
@@ -16,8 +15,8 @@ interface IProps {
 export const Footer = async ({ data }: IProps) => {
   const imageData = data.image[0];
   return (
-    <footer className="bg-primary py-[110px]" id="footer">
-      <Container className="flex items-center justify-between">
+    <footer className="bg-primary py-[110px] px-8" id="footer">
+      <div className="flex items-center justify-between">
           <Link
               className="text-mainText font-bold"
               title={data.address}
@@ -37,7 +36,7 @@ export const Footer = async ({ data }: IProps) => {
               href={data.phone_link} target="_blank">
               {data?.phone}
           </Link>
-      </Container>
+      </div>
     </footer>
   );
 };

@@ -1,25 +1,22 @@
 import Image from "next/image";
 import {strapiImage} from "@/lib/strapi/strapiImage";
-import {Container} from "@/components/container";
 import {CTAButton} from "@/components/elements/client-button";
 
 export const Hero = ({ data }) => {
     return (
         <section className="flex">
-            <div className="w-1/2 bg-mainText flex items-center justify-center py-[50px]">
-                <Container>
-                    <Image
-                        src={strapiImage(data.image.url)}
-                        alt={data.image.alternativeText}
-                        width={data.image.width}
-                        height={data.image.height}
-                        draggable={false}
-                    />
-                </Container>
+            <div className="w-1/2 bg-mainText flex items-center justify-center py-4 lg:py-[50px]">
+                <Image
+                    src={strapiImage(data.image.url)}
+                    alt={data.image.alternativeText}
+                    width={data.image.width}
+                    height={data.image.height}
+                    draggable={false}
+                />
             </div>
             <div className="w-1/2 bg-primary flex flex-col justify-center items-center">
-                <div className="w-[480px]">
-                    <h1 className="text-mainText text-5xl uppercase font-medium w-full relative pb-4">
+                <div className="w-3/4 lg:w-[480px]">
+                    <h1 className="hidden lg:block text-mainText text-5xl uppercase font-medium w-full relative pb-4">
                         <Image
                             src="/assets/img/circle.png"
                             alt="Decorative circle"

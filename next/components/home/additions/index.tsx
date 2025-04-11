@@ -1,5 +1,4 @@
 import {JapanTitle} from "@/components/ui/JapanTitle";
-import {Container} from "@/components/container";
 
 interface IProps {
     data: {
@@ -15,7 +14,7 @@ export const Additions = ({data}: IProps) => {
     return (
         <section>
             <JapanTitle title={data.title} />
-            <Container className="flex justify-center items-center gap-8 py-10">
+            <div className="flex justify-center items-center gap-8 py-10">
                 {data.content.map(item => {
                     return (
                         <div key={item.id} className="flex items-center gap-2">
@@ -24,7 +23,7 @@ export const Additions = ({data}: IProps) => {
                         </div>
                     )
                 })}
-            </Container>
+            </div>
         </section>
     )
 }
