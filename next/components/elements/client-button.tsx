@@ -9,7 +9,7 @@ export function CTAButton({ text, url }: { text: string; url: string }) {
 
     return (
         <Button
-            className="mt-28"
+            className="mt-14 md:mt-28"
             variant="primary"
             onClick={handleClick}
         >
