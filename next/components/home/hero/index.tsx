@@ -8,7 +8,7 @@ export const Hero = ({ data }) => {
             <div className="hidden md:flex w-1/2 bg-mainText items-center justify-center py-4 lg:py-[50px]">
                 <Image
                     src={strapiImage(data.image.url)}
-                    alt={data.image.alternativeText}
+                    alt="Funky Ramen Bar"
                     width={data.image.width}
                     height={data.image.height}
                     draggable={false}

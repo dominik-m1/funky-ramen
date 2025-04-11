@@ -15,7 +15,7 @@ interface IProps {
 export const Footer = async ({ data }: IProps) => {
   const imageData = data.image[0];
   return (
-    <footer className="bg-primary py-[110px] px-8" id="footer">
+    <footer className="bg-primary py-[110px] px-8">
       <div className="flex-col md:flex-row flex items-center justify-around gap-8 md:gap-0">
           <Link
               className="text-mainText font-bold"
@@ -31,6 +31,7 @@ export const Footer = async ({ data }: IProps) => {
               draggable={false}
           />
           <Link
+              id="footer"
               className="text-mainText font-bold"
               title={data.phone}
               href={data.phone_link} target="_blank">

@@ -37,7 +37,8 @@ export const handleItemClick = (index: number, orderLink) => {
             });
             break;
         case 2:
-            document.getElementById("footer")?.scrollIntoView({
+            window.scrollTo({
+                top: document.body.scrollHeight,
                 behavior: "smooth",
             });
             break;
