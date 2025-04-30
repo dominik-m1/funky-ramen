@@ -1,7 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    remotePatterns: [{ hostname: process.env.IMAGE_HOSTNAME || "localhost" }],
+    remotePatterns: [
+        { hostname: process.env.IMAGE_HOSTNAME || "localhost" },
+        {
+          protocol: 'http',
+          hostname: '185.180.206.73',
+          port: '1337',
+          pathname: '/uploads/**',
+        },
+    ],
   },
   typescript: {
     ignoreBuildErrors: true,
