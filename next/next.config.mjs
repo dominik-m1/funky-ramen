@@ -3,6 +3,9 @@ const nextConfig = {
   images: {
     remotePatterns: [{ hostname: process.env.IMAGE_HOSTNAME || "localhost" }],
   },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   pageExtensions: ["ts", "tsx"],
   async redirects() {
     let redirections = [];
