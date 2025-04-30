@@ -16,10 +16,10 @@ export function NavbarItem({
   return (
     <span
         onClick={onClick}
-      className={cn(
-          "font-bold uppercase text-mainText h-[50px] flex items-center px-6 cursor-pointer",
-          isLast ? "bg-secondary text-primary md:border-x-4 border-mainText" : "",
-      )}
+        className={cn(
+            "font-bold uppercase text-mainText h-[50px] flex items-center px-6 cursor-pointer hover:text-secondary transition duration-200",
+            isLast ? "bg-secondary text-primary md:border-x-4 border-mainText hover:bg-mainText hover:text-primary" : "",
+        )}
     >
       {children}
     </span>

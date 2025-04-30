@@ -3,6 +3,7 @@ import {Ramen} from "@/components/home/ramens/atoms/ramen";
 import { Fragment } from "react";
 import Image from "next/image";
 import {strapiImage} from "@/lib/strapi/strapiImage";
+import {AnimateFromBottom} from "@/components/animations/animate-direction";
 
 export interface IRamen {
     id: number;
@@ -42,16 +43,20 @@ export const Ramens = ({ data }: IProps) => {
                         return (
                             <Fragment key={`image-${item.id}`}>
                                 <div className={borderClasses}>
-                                    <Ramen ramen={item} image={data.image} />
+                                    <AnimateFromBottom>
+                                        <Ramen ramen={item} image={data.image} />
+                                    </AnimateFromBottom>
                                 </div>
                                 <div className={`hidden lg:flex border-2 border-mainText bg-secondary items-center justify-center p-2`}>
-                                    <Image
-                                        src={strapiImage(data.image.url)}
-                                        alt="Funky Ramen Bar"
-                                        width={data.image.width}
-                                        height={data.image.height}
-                                        draggable={false}
-                                    />
+                                    <AnimateFromBottom>
+                                        <Image
+                                            src={strapiImage(data.image.url)}
+                                            alt="Funky Ramen Bar"
+                                            width={data.image.width}
+                                            height={data.image.height}
+                                            draggable={false}
+                                        />
+                                    </AnimateFromBottom>
                                 </div>
                             </Fragment>
                         );
@@ -76,7 +81,9 @@ export const Ramens = ({ data }: IProps) => {
 
                     return (
                         <div className={borderClasses} key={item.id}>
-                            <Ramen ramen={item} image={data.image} />
+                            <AnimateFromBottom>
+                                <Ramen ramen={item} image={data.image} />
+                            </AnimateFromBottom>
                         </div>
                     );
                 })}
