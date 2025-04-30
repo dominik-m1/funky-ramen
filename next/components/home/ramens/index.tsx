@@ -35,7 +35,7 @@ export const Ramens = ({ data }: IProps) => {
     return (
         <section id="menu">
             <JapanTitle title={data.title} />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-[1440px] mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto">
                 {data.description.map((item, index) => {
                     let borderClasses = "md:border-l-2 lg:border-l-0 lg:border-t-2 border-b-2 lg:border-r-2 border-mainText";
 
