@@ -5,7 +5,8 @@ const nextConfig = {
         { hostname: process.env.IMAGE_HOSTNAME || "localhost" },
         {
           protocol: 'http',
-          hostname: '185.180.206.73',
+          // hostname: '185.180.206.73',
+          hostname: 'localhost',
           port: '1337',
           pathname: '/uploads/**',
         },

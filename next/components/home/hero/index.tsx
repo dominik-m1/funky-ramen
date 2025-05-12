@@ -5,8 +5,8 @@ import {AnimateFromLeft, AnimateFromRight} from "@/components/animations/animate
 
 export const Hero = ({ data }) => {
     return (
-        <section className="pt-[70px] md:pt-0 flex">
-            <div className="hidden md:flex w-1/2 bg-mainText items-center justify-center py-4 lg:py-[50px]">
+        <section className="pt-[70px] md:pt-0 md:flex">
+            <div className="flex w-full md:w-1/2 bg-mainText items-center justify-center py-4 lg:py-[50px] ">
                 <AnimateFromLeft>
                     <Image
                         src={strapiImage(data.image.url)}
@@ -14,6 +14,7 @@ export const Hero = ({ data }) => {
                         width={data.image.width}
                         height={data.image.height}
                         draggable={false}
+                        className="max-w-[75%] mx-auto"
                     />
                 </AnimateFromLeft>
             </div>

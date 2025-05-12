@@ -21,10 +21,12 @@ interface IProps {
         bar_title: string;
         bar_text: string;
         bar_image: IImage;
-        bottom_image: IImage
+        bottom_image: IImage;
+        map: IImage;
     }
 }
 export const AboutUs = ({ data }: IProps) => {
+    console.warn(data.map.url);
     return (
         <section>
                 <div
@@ -110,6 +112,16 @@ export const AboutUs = ({ data }: IProps) => {
                             className="-mb-2 max-h-[450px] lg:max-h-[500px] w-auto"
                         />
                     </div>
+                </AnimateFromBottom>
+                <AnimateFromBottom>
+                    <Image
+                        src={strapiImage(data.map.url)}
+                        alt="Funky Ramen Bar"
+                        width={data.map.width}
+                        height={data.map.height}
+                        draggable={false}
+                        className="max-h-[600px] min-h-[450px] object-cover"
+                    />
                 </AnimateFromBottom>
         </section>
     )
