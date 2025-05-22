@@ -44,7 +44,7 @@ export const Ramens = ({ data }: IProps) => {
                             <Fragment key={`image-${item.id}`}>
                                 <div className={borderClasses}>
                                     <AnimateFromBottom>
-                                        <Ramen ramen={item} image={data.image} />
+                                        <Ramen ramen={item} />
                                     </AnimateFromBottom>
                                 </div>
                                 <div className={`hidden lg:flex border-2 border-mainText bg-secondary items-center justify-center p-2`}>
@@ -82,7 +82,7 @@ export const Ramens = ({ data }: IProps) => {
                     return (
                         <div className={borderClasses} key={item.id}>
                             <AnimateFromBottom>
-                                <Ramen ramen={item} image={data.image} />
+                                <Ramen ramen={item} />
                             </AnimateFromBottom>
                         </div>
                     );
