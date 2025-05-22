@@ -1,6 +1,6 @@
 import fetchContentType from "@/lib/strapi/fetchContentType";
 import {Hero} from "@/components/home/hero";
-import {Appetizers} from "@/components/home/Appetizers";
+import {Appetizers} from "@/components/home/appetizers";
 import {Ramens} from "@/components/home/ramens";
 import {Additions} from "@/components/home/additions";
 import {NotRamens} from "@/components/home/not-ramens";
