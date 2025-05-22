@@ -26,7 +26,6 @@ interface IProps {
     }
 }
 export const AboutUs = ({ data }: IProps) => {
-    console.warn(data.map.url);
     return (
         <section>
                 <div

@@ -7,6 +7,8 @@ import {NotRamens} from "@/components/home/not-ramens";
 import {Desserts} from "@/components/home/desserts";
 import {AboutUs} from "@/components/home/about-us";
 import {generateMetadataObject} from "@/lib/shared/metadata";
+import Seasons from "@/components/home/seasons";
+import {fetchDeepContentType} from "@/lib/strapi/fetchDeepContentType";
 
 export async function generateMetadata() {
     const pageData = await fetchContentType("global", { filters: { locale: "pl" } }, true);
@@ -40,10 +42,20 @@ export default async function HomePage() {
     const notRamenData = await fetchContentType('not-ramen', { populate: '*' }, true);
     const dessertsData = await fetchContentType('dessert', { populate: '*' }, true);
     const aboutUsData = await fetchContentType('about-us', { populate: '*' }, true);
+    const seasonsData = await fetchDeepContentType("season", {
+        populate: {
+            ramens: { populate: {
+                    details: true,
+                }},
+            apetizers: { populate: "*" },
+            desserts: { populate: "*" },
+        },
+    });
 
     return (
         <div className="relative overflow-hidden">
             <Hero data={heroData}/>
+            <Seasons data={seasonsData.data}/>
             <Appetizers data={appetizersData}/>
             <Ramens data={ramensData}/>
             <Additions data={additionsData} />

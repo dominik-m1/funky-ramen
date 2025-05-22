@@ -668,6 +668,41 @@ export interface ApiRamenRamen extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiSeasonSeason extends Struct.SingleTypeSchema {
+  collectionName: 'seasons';
+  info: {
+    description: '';
+    displayName: 'Season';
+    pluralName: 'seasons';
+    singularName: 'season';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    apetizers: Schema.Attribute.Component<'items.appetizer', true>;
+    apetizers_title: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    desserts: Schema.Attribute.Component<'items.appetizer', true>;
+    desserts_title: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::season.season'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    ramens: Schema.Attribute.Component<'items.details', true>;
+    ramens_title: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1186,6 +1221,7 @@ declare module '@strapi/strapi' {
       'api::logo.logo': ApiLogoLogo;
       'api::not-ramen.not-ramen': ApiNotRamenNotRamen;
       'api::ramen.ramen': ApiRamenRamen;
+      'api::season.season': ApiSeasonSeason;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

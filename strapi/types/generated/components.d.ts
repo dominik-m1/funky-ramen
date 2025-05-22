@@ -286,9 +286,14 @@ export interface ItemsAppetizer extends Struct.ComponentSchema {
 export interface ItemsDetails extends Struct.ComponentSchema {
   collectionName: 'components_items_details';
   info: {
+    description: '';
     displayName: 'details';
   };
-  attributes: {};
+  attributes: {
+    details: Schema.Attribute.Component<'items.receipt-description', true>;
+    name: Schema.Attribute.String;
+    price: Schema.Attribute.String;
+  };
 }
 
 export interface ItemsGraphCardTopItems extends Struct.ComponentSchema {

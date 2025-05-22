@@ -1,8 +1,21 @@
 {
   "collectionName": "components_items_details",
   "info": {
-    "displayName": "details"
+    "displayName": "details",
+    "description": ""
   },
   "options": {},
-  "attributes": {}
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "price": {
+      "type": "string"
+    },
+    "details": {
+      "type": "component",
+      "repeatable": true,
+      "component": "items.receipt-description"
+    }
+  }
 }
